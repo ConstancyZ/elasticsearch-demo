@@ -198,7 +198,7 @@ public class RestHighLevelForDocumentTests extends ElasticsearchDemoApplicationT
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         // 先找到id = 1，2，3,再在这个结果集中查询description中有慕思的，对于大数据量过滤了查询效率会很高
         searchSourceBuilder
-                .query(QueryBuilders.termQuery("description","慕"))
+                .query(QueryBuilders.termQuery("description","慕g"))
                 .postFilter(QueryBuilders.idsQuery().addIds("1").addIds("2").addIds("3")); //用来指定过滤对象
         // 指定查询条件
         searchRequest.source(searchSourceBuilder);
